@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.rectangle {
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
+    background-color: #3498db;
+    margin: 1%;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+#rectangle1 {
+    background-color: #e74c3c;
+}
+
+#rectangle2 {
+    background-color: #2ecc71;
+}
+
+#rectangle3 {
+    background-color: #f39c12;
+}
