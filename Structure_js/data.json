@@ -1,0 +1,14 @@
+let data = [
+    {
+        type: 'div', 
+        children: [
+            { type: 'h1', children: [{ type: 'p' }] },
+            {
+                type: 'ul', children: [
+                    { type: 'li' },
+                    { type: 'li' }
+                ]
+            }
+        ]
+    }
+]
