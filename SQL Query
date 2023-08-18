@@ -1,0 +1,19 @@
+SELECT CustomerId, OrderDate FROM Orders WHERE OrderDate LIKE '%04';
+
+
+SELECT Orders.OrderDate, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID)
+WHERE OrderDate LIKE '%04';
+
+
+
+SELECT Products.ProductName, OrderDetails.Quantity, MAX(OrderDetails.Quantity)
+FROM OrderDetails
+INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID;
+
+
+[4:14 pm] Pranav Karanjawane | Börm Bruckmeier Infotech
+
+SELECT MAX(OrderDetails.Quantity), Products.ProductName FROM [OrderDetails] join Products on OrderDetails.ProductID=Products.ProductID WHERE Quantity < (SELECT MAX(Quantity) FROM OrderDetails)
