@@ -51,6 +51,7 @@ for i in range(len(Heros)):
         print("Battle", i + 1, "result: Team hero wins!")
     else:
         print("Battle", i + 1, "result: Team Monster wins!")
+        print('hi')
         
         
         
