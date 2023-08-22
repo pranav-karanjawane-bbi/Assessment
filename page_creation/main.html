@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>Signup Form</title>
+  </head>
+  <body>
+    <div class="maincontainer">
+      <div id="box1">
+        <h1 class="sign">Signup Form</h1>
+
+        <form id="signupForm" onsubmit="event.preventDefault(); validate()">
+          <!-- <label for="firstName">First Name : </label> -->
+          <input
+          class="info"
+            type="text"
+            id="firstName"
+            placeholder="Enter your First name"
+            required
+          /><br />
+
+          <!-- <label for="lastName">Last Name : </label> -->
+          <input
+          class="info"
+            type="text"
+            id="lastName"
+            placeholder="Enter your Last name"
+            required
+          /><br />
+
+          <!-- <label for="email">Email Id : </label> -->
+          <input
+          class="info"
+            type="email"
+            id="email"
+            placeholder="Enter your Email"
+            required
+          /><br />
+
+          <!-- <label for="phone">Phone Number : </label> -->
+          <input
+          class="info"
+            type="number"
+            id="phone"
+            placeholder="Enter your Phone Number"
+            required
+          /><br />
+
+          <!-- <label for="password">Password : </label> -->
+          <input
+          class="info"
+            type="password"
+            id="password"
+            placeholder="Enter your Password"
+            required
+          /><br />
+
+          <button type="submit" class="sbtn">Sign Up!</button>
+        </form>
+      </div>
+
+<!-- Login page code below -->
+
+      <div id="box2">
+        <h1 class="login">Login!</h1>
+
+        <form id="login" onsubmit="event.preventDefault(); check()">
+          <!-- <label for="username">Username (email) : </label> -->
+          <input
+          class="given"
+            type="text"
+            id="username"
+            placeholder="type your username email"
+          /><br />
+
+          <!-- <label for="password">Password : </label> -->
+          <input
+          class
+            type="password"
+            id="password"
+            placeholder="write your password"
+          /><br />
+
+          <button type="submit" class="lbtn">Log In</button>
+        </form>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

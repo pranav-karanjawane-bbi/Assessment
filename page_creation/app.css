@@ -1,0 +1,86 @@
+:root{
+    background-color: rgb(43, 185, 83);
+    
+}
+
+.maincontainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#box1{
+    margin-top: 300px;
+    background-color:rgb(255, 255, 255);
+    display: inline-block;
+    border:2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 15px;
+    width: 300px;
+    text-align: center;
+
+}
+
+#box1 .info{
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+}
+
+#box1 .sign{
+    text-align: center;
+    font-size:x-large;
+    text-decoration: solid;
+    color: rgb(0, 36, 121);
+}
+
+#box1 .sbtn{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(42, 212, 90);
+}
+#box1 .sbtn:hover{
+    background-color: aliceblue;
+    transition-duration: 0.5s;
+}
+
+/* below is box 2 */
+
+#box2{
+    margin-top: 300px;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 15px;
+    width: 300px;
+    text-align: center;
+}
+#box2 .login{
+    text-align: center;
+    font-size:x-large;
+    text-decoration: solid;
+    color: rgb(106, 0, 114);
+
+}
+
+#box2 .lbtn{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(42, 212, 90);
+}
+
+#box2 .lbtn:hover{
+    background-color: aliceblue;
+    transition-duration: 0.5s;
+}
+
+#box2 .given{
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+}
