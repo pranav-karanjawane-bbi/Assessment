@@ -55,7 +55,7 @@ String numberToWords(number){
 void main()
 {
   
-  int a = 1000;
+  // int a = 1000;
   
 //   for(var i = a; i<10000; i+=3){
 //     print('\n');
