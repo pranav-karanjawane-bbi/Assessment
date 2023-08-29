@@ -70,7 +70,7 @@ try{
 
 
 try{
-   var3!.toString(); 
+   var3.toString(); 
   print("$var3\n");
 }
  catch(_){
