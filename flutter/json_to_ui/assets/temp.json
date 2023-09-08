@@ -1,0 +1,376 @@
+[
+    {
+        "id": 1,
+        "categoryName": "NEW Guidelines",
+        "showOnlySubCategory": true,
+        "sequenceNo": "2",
+        "items": [
+            {
+                "id": "GL40",
+                "tag": [
+                    "SA16",
+                    "SA12"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL40"
+                    }
+                }
+            },
+            {
+                "id": "GL5",
+                "tag": [
+                    "SA7"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL5"
+                    }
+                }
+            },
+            {
+                "id": "GL3",
+                "tag": [
+                    "SA13",
+                    "SA11"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL3"
+                    }
+                }
+            },
+            {
+                "id": "GL54",
+                "tag": [
+                    "SA1"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL54"
+                    }
+                }
+            },
+            {
+                "id": "GL22",
+                "tag": [
+                    "SA7"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL22"
+                    }
+                }
+            }
+        ],
+        "subCategory": {
+            "title": "Categories",
+            "sequenceNo": "1",
+            "showSubCategoriesAsSeparateCarousel": false,
+            "items": [
+                {
+                    "id": "SA1",
+                    "name": "En­doscopy",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#3D5AFE",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA1"
+                        }
+                    }
+                },
+                {
+                    "id": "SA2",
+                    "name": "Pae­di­atrics",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#FFA2B4",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA2"
+                        }
+                    }
+                },
+                {
+                    "id": "SA3",
+                    "name": "He­pa­to­bil­i­ary",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#0097A7",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA3"
+                        }
+                    }
+                },
+                {
+                    "id": "SA4",
+                    "name": "Small In­tes­tine & Nu­tri­tion",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#D500F9",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA4"
+                        }
+                    }
+                },
+                {
+                    "id": "SA5",
+                    "name": "Di­ges­tive On­col­o­gy",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#FF99C0",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA5"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 0,
+        "categoryName": "All Guidelines",
+        "showOnlySubCategory": false,
+        "sequenceNo": "3",
+        "items": [
+            {
+                "id": "GL40",
+                "tag": [
+                    "SA16",
+                    "SA12"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL40"
+                    }
+                }
+            },
+            {
+                "id": "GL5",
+                "tag": [
+                    "SA7"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL5"
+                    }
+                }
+            },
+            {
+                "id": "GL3",
+                "tag": [
+                    "SA13",
+                    "SA11"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL3"
+                    }
+                }
+            },
+            {
+                "id": "GL54",
+                "tag": [
+                    "SA1"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL54"
+                    }
+                }
+            },
+            {
+                "id": "GL22",
+                "tag": [
+                    "SA7"
+                ],
+                "defaultProperties": {
+                    "color": {
+                        "backgroundColor": "#E9E9E9",
+                        "themeColor": "#F7CA11",
+                        "textColor": "#303335"
+                    },
+                    "enabled": true,
+                    "onClick": {
+                        "target": "1",
+                        "parameter": "GL22"
+                    }
+                }
+            }
+        ],
+        "subCategory": {
+            "title": "Categories",
+            "sequenceNo": "1",
+            "showSubCategoriesAsSeparateCarousel": false,
+            "items": [
+                {
+                    "id": "SA1",
+                    "name": "En­doscopy",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#3D5AFE",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA1"
+                        }
+                    }
+                },
+                {
+                    "id": "SA2",
+                    "name": "Pae­di­atrics",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#FFA2B4",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA2"
+                        }
+                    }
+                },
+                {
+                    "id": "SA3",
+                    "name": "He­pa­to­bil­i­ary",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#0097A7",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA3"
+                        }
+                    }
+                },
+                {
+                    "id": "SA4",
+                    "name": "Small In­tes­tine & Nu­tri­tion",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#D500F9",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA4"
+                        }
+                    }
+                },
+                {
+                    "id": "SA5",
+                    "name": "Di­ges­tive On­col­o­gy",
+                    "defaultProperties": {
+                        "color": {
+                            "backgroundColor": "#F7CA11",
+                            "themeColor": "#FF99C0",
+                            "textColor": "#303335"
+                        },
+                        "enabled": true,
+                        "onClick": {
+                            "target": "4",
+                            "parameter": "SA5"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+]
