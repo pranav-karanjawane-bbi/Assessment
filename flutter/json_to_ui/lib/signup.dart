@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class SignUp extends StatefulWidget {
+
   const SignUp({super.key});
 
   @override
@@ -21,9 +22,10 @@ class _SignUpState extends State<SignUp> {
      prefs!.setString('signUpEmail', emailController.text);
     prefs!.setString('signUpPassword', passwordController.text);
     prefs!.setString('signUpName', nameController.text);
-
-
   }
+
+  RegExp passValid = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  //A function that validate user entered password
 
 
   @override
@@ -47,6 +49,7 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Card(
+
                   elevation : 30,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
@@ -131,6 +134,28 @@ class _SignUpState extends State<SignUp> {
                                 ],
                               ),
                             );
+                            if(!passValid.hasMatch(passwordController.text)){
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: const Text("enter a valid password"),
+                                  content: const Text("should contain at least one upper case\nshould contain at least one lower case\n\nshould contain at least one digit\nshould contain at least one Special character\nMust be at least 8 characters in length"),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Container(
+                                        color: Colors.green,
+                                        padding: const EdgeInsets.all(14),
+                                        child: const Text("okay",
+                                          style: TextStyle(color: Colors.black54),),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
                           }
                           else {
                             Navigator.pushReplacementNamed(
@@ -154,4 +179,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
