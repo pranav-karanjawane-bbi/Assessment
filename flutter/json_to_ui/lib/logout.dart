@@ -29,7 +29,11 @@ class _LogoutState extends State<Logout> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                "$gotName"
+                "$gotName",
+              style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Center(
               child: ElevatedButton(

@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'main.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  int flag = 1;
 
   bool? decision;
   final TextEditingController nameController = TextEditingController();
@@ -16,34 +20,51 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   bool valuefirst = false;
 
-  // Future<void> predefined()async{
-  //   final SharedPreferences prefs = await  SharedPreferences.getInstance();
-  //
-  // }
+
 
 
   Future<void> validate (String inputEmail,String inputPassword)  async {
-    int? emailResult;
-    int? passwordResult;
-    // final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? signUpEmail = prefs!.getString('signUpEmail');
-    final String? signUpPassword = prefs!.getString('signUpPassword');
-    if(signUpEmail == null && signUpPassword == null){
-      decision = false;}
-      else{
+  var userData = await getUserData();
+  int? emailResult;
+  int? passwordResult;
+  int? emailResultOnline;
+  int? passwordResultOnline;
+
+  // final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final String? signUpEmail = prefs!.getString('signUpEmail');
+  final String? signUpPassword = prefs!.getString('signUpPassword');
+  String onlineEmail = userData['email'];
+  String onlinePassword = userData['password'];
+
     emailResult = inputEmail.compareTo(signUpEmail!);
-    passwordResult = inputPassword.compareTo(signUpPassword!);}
-    if (inputEmail.isEmpty) {
+    passwordResult = inputPassword.compareTo(signUpPassword!);
+    emailResultOnline = inputEmail.compareTo(onlineEmail);
+    passwordResultOnline = inputPassword.compareTo(onlinePassword);
+
+  if (inputEmail.isEmpty) {
+    decision = false;
+  } else {
+    if ((emailResult == 0 && passwordResult == 0)||(emailResultOnline == 0 && passwordResultOnline == 0)) {
+      decision = true;
+    }
+
+    else {
       decision = false;
-    } else {
-      if (emailResult == 0 && passwordResult == 0) {
-        decision = true;
-      }
-      else {
-        decision = false;
-      }
     }
   }
+}
+
+
+
+  Future<dynamic> getUserData() async {
+    final String userDetails =
+    await http.read(Uri.parse(
+        "https://s3.eu-west-1.amazonaws.com/bbi.appsdata.2013/for_development/user_details.json"));
+    final dynamic? userData = jsonDecode(userDetails);
+    // print(userData);
+    return userData;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -134,10 +155,10 @@ class _LoginPageState extends State<LoginPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.lightBlue,
                       ),
-                      onPressed: (){
+                      onPressed: ()async {
 
-                        validate(emailController.text, passwordController.text);
-                        if(decision!) {
+                        await validate(emailController.text, passwordController.text);
+                        if(decision == true) {
                           Navigator.pushReplacementNamed(context, 'home');
                         }
                         else{
@@ -162,6 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           );
                         }
+                        flag = 0;
                         },
                       child: const Text('Submit',
                         style: TextStyle(
