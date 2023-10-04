@@ -1,4 +1,4 @@
 abstract class RouteState {}
 
-class ButtonClickedState extends RouteState {}
-class ButtonInitialState extends RouteState {}
+class HomeState extends RouteState {}
+class DummyScreenState extends RouteState {}

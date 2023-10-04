@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: (){
 
-                    Navigator.pushNamed(context, 'signup');
+                    Navigator.pushReplacementNamed(context, 'signup');
 
                 },
                 child: const Text('SignUp!',

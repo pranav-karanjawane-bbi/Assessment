@@ -1,10 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'Provider/name_change_provider.dart';
 import 'guideline_model.dart' as model;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'main.dart';
+import 'login.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -111,12 +114,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Json to UI",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),),
-          actions: [
+          title: Consumer<NameChangeProvider>(builder: (context, provider, child) {
+            return  Text("${getName()}",
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),);
+            },
+          ),
+            actions: [
             Center(child: Text(display(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
@@ -147,6 +153,7 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
+
         // body: FutureBuilder<List<model.GuidelineModel>>(
       body: FutureBuilder<dynamic>(
 

@@ -1,3 +1,4 @@
 abstract class RouteEvent {}
 
-class ButtonClickedEvent extends RouteEvent {}
+class HomeScreenEvent extends RouteEvent {}
+class DummyScreenEvent extends RouteEvent {}

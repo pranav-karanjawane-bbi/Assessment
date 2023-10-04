@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/route_bloc.dart';
 
 class TempPage extends StatefulWidget {
   const TempPage({super.key});
@@ -19,6 +22,19 @@ class _TempPageState extends State<TempPage> {
               fontSize: 35,
               color: Colors.red
           ),),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: ElevatedButton(
+              child: const Text("button"),
+              onPressed: () {
+                BlocProvider.of<RouteBloc>(context).loadHomeScreen();
+              },
+            ),
+          )
+        ],
       ),
     );
   }
