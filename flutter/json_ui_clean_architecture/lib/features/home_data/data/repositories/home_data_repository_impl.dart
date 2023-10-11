@@ -29,6 +29,7 @@ class HomeDataRepositoryImpl implements HomeDataRepository{
     return _getData();
   }
 
+
   Future<Either<Failure, List<HomeDataModel>>> _getData()async{
   if (isSwitched! == false) {
     try{

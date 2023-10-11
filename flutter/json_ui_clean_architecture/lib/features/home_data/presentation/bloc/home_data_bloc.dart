@@ -15,25 +15,27 @@ class HomeDataBloc extends Bloc<HomeDataEvent, HomeDataState> {
   GetOfflineSwitchedValue getOfflineSwitchedValue;
   GetOnlineSwitchedValue getOnlineSwitchedValue;
 
-  HomeDataBloc({required this.getOfflineSwitchedValue,required this.getOnlineSwitchedValue}) : super(HomeDataInitial()) {
-    on<HomeDataEvent>((event, emit) => (HomeDataInitial()));
+  HomeDataBloc(
+      {required this.getOfflineSwitchedValue, required this.getOnlineSwitchedValue})
+      : super(HomeDataInitial()) {
+    on<HomeScreenEvent>((event, emit) => (HomeDataInitial()));
+  }
 
-    }
 
-
-  Future<List<HomeDataModel>>callDecider()async{
+  Future<List<HomeDataModel>> callDecider() async {
     if (isSwitched! == false) {
       await getOfflineSwitchedValue();
-
     }
 
-    if(isSwitched! == true) {
+    if (isSwitched! == true) {
       await getOnlineSwitchedValue();
     }
 
-    return(objList);
+    return (objList);
   }
 
+  loadHomeFeatureScreen() {
+    add(HomeScreenEvent());
   }
 
-
+}

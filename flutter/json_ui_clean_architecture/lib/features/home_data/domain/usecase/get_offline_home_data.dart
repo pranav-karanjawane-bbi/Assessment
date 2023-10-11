@@ -20,12 +20,3 @@ class GetOfflineSwitchedValue implements UseCase<bool> {
     return await repository.getOfflineSwitchedValue(isSwitched);
   }
 }
-
-// class Params extends Equatable{
-//   const Params({required this.isSwitched});
-//   final bool isSwitched;
-//
-//
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [isSwitched];}

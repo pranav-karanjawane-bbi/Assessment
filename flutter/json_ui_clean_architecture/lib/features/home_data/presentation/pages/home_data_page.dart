@@ -31,16 +31,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  // late Future <model.HomeDataModel> receivedData;
-  // bool? isSwitched = true; //true is for api
-  // String? storedOnlineData;
-  // String? storedAssetData;
-  // List<model.HomeDataModel> objList =[];
-  // String? dataInfo;
-  //
-  // _HomePageState({required this.homeBloc});
-  // late HomeDataBloc homeBloc;
-
   String display(){
     if(isSwitched! == false) {
       dataInfo = "This is Asset data";

@@ -7,3 +7,12 @@ import '../error/faiure.dart';
 abstract class UseCase<Type> {
   Future<Either<Failure, List<HomeData>>> call();
 }
+
+abstract class AuthenticationUseCase<AuthenticationData, Params>{
+  Future<Either<Failure, AuthenticationData>> invoke(Params params);
+}
+
+
+// abstract class UseCase<Type, Params> {
+//   Future<Either<Failure, Type>> call(Params params);
+// }

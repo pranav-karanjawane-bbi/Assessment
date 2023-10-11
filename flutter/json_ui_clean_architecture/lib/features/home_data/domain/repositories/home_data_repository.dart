@@ -7,5 +7,7 @@ abstract class HomeDataRepository {
    // Future<Either<Failure, bool>>getSwitchedValue(bool isSwitched);
    Future<Either<Failure, List<HomeData>>>getOfflineSwitchedValue(isSwitched);
    Future<Either<Failure, List<HomeData>>>getOnlineSwitchedValue(isSwitched);
+
+
 }
 
