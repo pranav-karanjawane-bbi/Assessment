@@ -17,12 +17,8 @@ String? storedAssetData;
 SharedPreferences? prefs ;
 String? dataInfo;
 
-final TextEditingController nameController = TextEditingController();
-final TextEditingController emailController = TextEditingController();
-final TextEditingController passwordController = TextEditingController();
 
-final TextEditingController loginEmailController = TextEditingController();
-final TextEditingController loginPasswordController = TextEditingController();
+// second features global variables declared here below
 
 int flag = 1;
 bool? decision;

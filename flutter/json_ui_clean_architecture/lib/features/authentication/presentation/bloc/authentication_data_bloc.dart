@@ -14,35 +14,41 @@ class AuthenticationDataBloc extends Bloc<AuthenticationDataEvent, Authenticatio
   AuthenticationSignupUsecase authenticationSignupUsecase;
 
 
-  AuthenticationDataBloc({required this.authenticationLoginUsecase, required this.authenticationSignupUsecase})
+  AuthenticationDataBloc(
+      {required this.authenticationLoginUsecase, required this.authenticationSignupUsecase})
       : super(AuthenticationDataInitial()) {
     // on<AuthenticationDataEvent>((event, emit) {
-      on<AuthenticationDataSignupEvent> ((event, emit) => emit (AuthenticationDataSignupState()));
+    on<AuthenticationDataSignupEvent>((event, emit) =>
+        emit(AuthenticationDataSignupState()));
 
-      on<AuthenticationDataLoginToSignupEvent> ((event, emit) => emit (AuthenticationDataLoginToSignupState()));
+    on<AuthenticationDataLoginToSignupEvent>((event, emit) =>
+        emit(AuthenticationDataLoginToSignupState()));
 
-      on<AuthenticationDataLoginEvent> ((event, emit) => emit (AuthenticationDataLoginState()));
-
+    on<AuthenticationDataLoginEvent>((event, emit) =>
+        emit(AuthenticationDataLoginState()));
   }
 
-  loadLoginScreen(){
+  loadLoginScreen() {
     add(AuthenticationDataLoginEvent());
   }
 
-  loadSignupScreen(){
+  loadSignupScreen() {
     add(AuthenticationDataSignupEvent());
   }
 
-  loadLoginToSignupScreen(){
+  loadLoginToSignupScreen() {
     add(AuthenticationDataLoginToSignupEvent());
   }
 
 
-  dynamic callAuthenticationForLogin()async{
-    return await authenticationLoginUsecase();
+  dynamic callAuthenticationForLogin(String inputStringEmailLogin, String inputStringPasswordLogin) async {
+    return await authenticationLoginUsecase.getLoginValueToUsecaseFile(inputStringEmailLogin, inputStringPasswordLogin);
   }
 
-  dynamic callAuthenticationForSignup()async{
-    return await authenticationSignupUsecase();
+  dynamic callAuthenticationForSignup(String inputStringName,
+      String inputStringEmail, String inputStringPassword) async {
+    return await authenticationSignupUsecase.getValueToUsecaseFile(inputStringName, inputStringEmail, inputStringPassword);
   }
+
 }
+

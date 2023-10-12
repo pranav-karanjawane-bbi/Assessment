@@ -10,5 +10,6 @@ abstract class AuthenticationDataRepository {
   // Future<Either<Failure, bool>>getSwitchedValue(bool isSwitched);
   Future<Either<Failure, AuthenticationModel>>getAuthenticationLogin();
   Future<Either<Failure, AuthenticationModel>>getAuthenticationSignup();
-
+  getValueToUsecaseFile(String name, String email, String password);
+  callAuthenticationForLogin(String email,String password);
 }

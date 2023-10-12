@@ -7,6 +7,7 @@ import 'package:json_ui_clean_architecture/features/home_data/presentation/pages
 import 'package:provider/provider.dart';
 import 'package:json_ui_clean_architecture/injection_container.dart'as di;
 import 'core/util/name_change_provider.dart';
+import 'core/util/utility.dart';
 import 'features/authentication/presentation/pages/authentication_login_page.dart';
 import 'features/authentication/presentation/pages/authentication_signup_page.dart';
 import 'injection_container.dart';
@@ -60,7 +61,21 @@ class BlocHandler extends StatelessWidget {
       child: BlocBuilder<AuthenticationDataBloc, AuthenticationDataState>(
 
           builder: (BuildContext context, state) {
+            // final bool? checkedvalue = prefs!.getBool('checkbox');
 
+          //   if(checkedvalue! == true || state is AuthenticationDataLoginState){
+          //     return BlocBuilder<HomeDataBloc, HomeDataState>(
+          //       builder: (BuildContext context, state) {
+          //         if (state is HomeDataInitial) {
+          //           return const HomePage();
+          //         } else if (state is AuthenticationDataInitial) {
+          //           return const LoginPage();
+          //         }
+          //         return (container());
+          //       }
+          //
+          //     );
+          // }
             if(state is AuthenticationDataInitial){
               return const LoginPage();
             }

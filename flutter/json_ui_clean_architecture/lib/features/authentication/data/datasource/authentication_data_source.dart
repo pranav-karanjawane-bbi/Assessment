@@ -9,7 +9,7 @@ import '../../../../core/util/utility.dart';
 
 abstract class AuthenticationDataSource{
   Future getUserDataApi();
-  setUserDataLocal();
+  setUserDataLocal(String name, String email, String password);
 
 }
 
@@ -29,11 +29,11 @@ class AuthenticationDataSourceImpl extends AuthenticationDataSource {
   }
 
   @override
-  setUserDataLocal() {
+  setUserDataLocal(String name, String email, String password) async{
+    await prefs?.setString('signUpName', name);
+     await prefs?.setString('signUpEmail', email);
+      await prefs?.setString('signUpPassword', password);
 
-      prefs!.setString('signUpEmail', emailController.text);
-      prefs!.setString('signUpPassword', passwordController.text);
-      prefs!.setString('signUpName', nameController.text);
   }
 
 

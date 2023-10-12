@@ -14,8 +14,12 @@ class AuthenticationLoginUsecase{
   final AuthenticationDataRepository authenticationDataRepository;
 
  @override
- Future<Either<Failure, AuthenticationData>> call() async{
+ Future<Either<Failure, AuthenticationData>> invoke() async{
 
    return await authenticationDataRepository.getAuthenticationLogin() ;
+ }
+ getLoginValueToUsecaseFile(String email, String password)async{
+  return await authenticationDataRepository.callAuthenticationForLogin(email, password);
+
  }
 }

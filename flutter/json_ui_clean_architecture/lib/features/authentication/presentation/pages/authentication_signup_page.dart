@@ -23,11 +23,14 @@ class _SignUpState extends State<SignUp> {
   //   prefs!.setString('signUpEmail', emailController.text);
   //   prefs!.setString('signUpPassword', passwordController.text);
   //   prefs!.setString('signUpName', nameController.text);
-  // }
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   RegExp passValid = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
   //A function that validate user entered password
-
+  String inputStringEmail = ''; String inputStringName = ''; String inputStringPassword = '';
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +66,9 @@ class _SignUpState extends State<SignUp> {
                         child: ListTile(
                           title: TextField(
                             controller: nameController,
+                            onChanged: (value){
+                              inputStringName = value;
+                            },
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: 'Enter Your Name',
@@ -75,6 +81,9 @@ class _SignUpState extends State<SignUp> {
                         child: ListTile(
                           title: TextField(
                             controller: emailController,
+                              onChanged: (value){
+                                inputStringEmail = value;
+                              },
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: 'Enter Your Email',
@@ -87,6 +96,9 @@ class _SignUpState extends State<SignUp> {
                         child: ListTile(
                           title: TextField(
                             controller: passwordController,
+                            onChanged: (value){
+                              inputStringPassword = value;
+                            },
                             obscureText: true,
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
@@ -114,8 +126,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                       onPressed: ()async {
                         // signupUsecase.authenticationDataRepository.getAuthenticationSignup();
-                        await sl<AuthenticationDataBloc>().callAuthenticationForSignup();
-                        if(emailController.text.isEmpty || passwordController.text.isEmpty || nameController.text.isEmpty){
+                        await sl<AuthenticationDataBloc>().callAuthenticationForSignup(inputStringName,inputStringEmail, inputStringPassword );
+                        if(inputStringName.isEmpty || inputStringEmail.isEmpty || inputStringPassword.isEmpty){
                           showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
@@ -136,7 +148,7 @@ class _SignUpState extends State<SignUp> {
                               ],
                             ),
                           );
-                          if(!passValid.hasMatch(passwordController.text)){
+                          if(!passValid.hasMatch(inputStringPassword)){
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
@@ -158,10 +170,10 @@ class _SignUpState extends State<SignUp> {
                               ),
                             );
                           }
+                          await sl<AuthenticationDataBloc>().callAuthenticationForSignup(inputStringName,inputStringEmail, inputStringPassword );
                         }
+                        //
                         else {
-                          // Navigator.pushReplacementNamed(
-                          //     context, 'login');
 
                           BlocProvider.of<AuthenticationDataBloc>(context).loadSignupScreen();
                         }

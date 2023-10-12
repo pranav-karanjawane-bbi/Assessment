@@ -16,55 +16,162 @@ class AuthenticationDataRepositoryImpl extends AuthenticationDataRepository {
 
   final AuthenticationDataSource dataSource;
 
-  @override
-  Future<Either<Failure, AuthenticationModel>> getAuthenticationLogin() {
-    return validateData(loginEmailController.text, loginPasswordController.text);
-  }
+
 
   @override
-  Future<Either<Failure, AuthenticationModel>> getAuthenticationSignup() {
-    return dataSource.setUserDataLocal();
+  getValueToUsecaseFile(String name, String email, String password) {
+    return dataSource.setUserDataLocal( name,  email,  password);
   }
 
 
-  Future<Either<Failure, AuthenticationModel>> validateData(String inputEmail, String inputPassword)  async {
+  Future<bool?> validateData(String inputEmail, String inputPassword)  async {
     var fetchedApiData = await dataSource.getUserDataApi() as Map;
     int? emailResult;
     int? passwordResult;
     int? emailResultOnline;
     int? passwordResultOnline;
 
+
     // final SharedPreferences prefs = await SharedPreferences.getInstance();
+    //
+    try {
+      final String? signUpEmail = prefs!.getString('signUpEmail');
+      final String? signUpPassword = prefs!.getString('signUpPassword');
 
-    final String? signUpEmail = prefs!.getString('signUpEmail');
-    final String? signUpPassword = prefs!.getString('signUpPassword');
+      if (signUpEmail!.isEmpty) {
+        String onlineEmail = fetchedApiData['email'];
+        String onlinePassword = fetchedApiData['password'];
 
+        emailResultOnline = inputEmail.compareTo(onlineEmail);
+        passwordResultOnline = inputPassword.compareTo(onlinePassword);
 
-    // final String signupEmail = userData[1];
-
-
-    String onlineEmail = fetchedApiData['email'];
-    String onlinePassword = fetchedApiData['password'];
-
-    emailResult = inputEmail.compareTo(signUpEmail!);
-    passwordResult = inputPassword.compareTo(signUpPassword!);
-    emailResultOnline = inputEmail.compareTo(onlineEmail);
-    passwordResultOnline = inputPassword.compareTo(onlinePassword);
-
-    if (inputEmail.isEmpty) {
-      decision = false;
-    } else {
-      if ((emailResult == 0 && passwordResult == 0) ||
-          (emailResultOnline == 0 && passwordResultOnline == 0)) {
-        decision = true;
+        if (inputEmail.isEmpty) {
+          decision = false;
+        } else {
+          if ((emailResultOnline == 0 && passwordResultOnline == 0)) {
+            decision = true;
+          }
+          else {
+            decision = false;
+          }
+        }
       }
-
       else {
-        decision = false;
+        emailResult = inputEmail.compareTo(signUpEmail!);
+        passwordResult = inputPassword.compareTo(signUpPassword!);
+
+        if (inputEmail.isEmpty) {
+          decision = false;
+        } else {
+          if ((emailResult == 0 && passwordResult == 0)) {
+            decision = true;
+          }
+
+          else {
+            decision = false;
+          }
+        }
+      }
+    } catch (e) {
+      final String? signUpEmail = inputEmail;
+      final String? signUpPassword = inputPassword;
+
+      if (signUpEmail!.isEmpty) {
+        String onlineEmail = fetchedApiData['email'];
+        String onlinePassword = fetchedApiData['password'];
+
+        emailResultOnline = inputEmail.compareTo(onlineEmail);
+        passwordResultOnline = inputPassword.compareTo(onlinePassword);
+
+        if (inputEmail.isEmpty) {
+          decision = false;
+        } else {
+          if ((emailResultOnline == 0 && passwordResultOnline == 0)) {
+            decision = true;
+          }
+          else {
+            decision = false;
+          }
+        }
+      }
+      else {
+        emailResult = inputEmail.compareTo(signUpEmail!);
+        passwordResult = inputPassword.compareTo(signUpPassword!);
+
+        if (inputEmail.isEmpty) {
+          decision = false;
+        } else {
+          if ((emailResult == 0 && passwordResult == 0)) {
+            decision = true;
+          }
+
+          else {
+            decision = false;
+          }
+        }
       }
     }
-    return contianer();
+    return decision;
   }
 
-   contianer() {}
+
+
+
+  //   // final String signupEmail = userData[1];
+  //   if(signUpEmail!.isEmpty){
+  //     String onlineEmail = fetchedApiData['email'];
+  //     String onlinePassword = fetchedApiData['password'];
+  //
+  //     emailResultOnline = inputEmail.compareTo(onlineEmail);
+  //     passwordResultOnline = inputPassword.compareTo(onlinePassword);
+  //
+  //     if (inputEmail.isEmpty) {
+  //       decision = false;
+  //     } else {
+  //       if ((emailResultOnline == 0 && passwordResultOnline == 0)) {
+  //         decision = true;
+  //       }
+  //       else {
+  //         decision = false;
+  //       }
+  //     }
+  //   }
+  //   else{
+  //     emailResult = inputEmail.compareTo(signUpEmail!);
+  //     passwordResult = inputPassword.compareTo(signUpPassword!);
+  //
+  //     if (inputEmail.isEmpty) {
+  //       decision = false;
+  //     } else {
+  //       if ((emailResult == 0 && passwordResult == 0)) {
+  //         decision = true;
+  //       }
+  //
+  //       else {
+  //         decision = false;
+  //       }
+  //     }
+  //   }
+  //
+  //   return decision;
+  // }
+
+
+
+  @override
+  Future<Either<Failure, AuthenticationModel>> getAuthenticationSignup() {
+
+    throw UnimplementedError();
+  }
+
+  @override
+  callAuthenticationForLogin(String email, String password) {
+    return validateData(email, password);
+  }
+
+  @override
+  Future<Either<Failure, AuthenticationModel>> getAuthenticationLogin() {
+    // TODO: implement getAuthenticationLogin
+    throw UnimplementedError();
+  }
 }

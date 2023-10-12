@@ -31,7 +31,11 @@ class _LoginPageState extends State<LoginPage> {
   // late TextEditingController passwordController = TextEditingController();
   // bool valuefirst = false;
 
+  final TextEditingController loginEmailController = TextEditingController();
+  final TextEditingController loginPasswordController = TextEditingController();
 
+
+  String inputStringEmailLogin = ''; String inputStringPasswordLogin = '';
 
   //
   //
@@ -78,7 +82,10 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.all(8.0),
                         child: ListTile(
                           title: TextField(
-                            controller: emailController,
+                            controller: loginEmailController,
+                            onChanged: (value){
+                              inputStringEmailLogin = value;
+                            },
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: 'Enter Your Email',
@@ -90,7 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.all(8.0),
                         child: ListTile(
                           title: TextField(
-                            controller: passwordController,
+                            controller: loginPasswordController,
+                            onChanged: (value){
+                              inputStringPasswordLogin = value;
+                            },
                             obscureText: true,
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
@@ -141,11 +151,12 @@ class _LoginPageState extends State<LoginPage> {
                          //
                          // emailController = myEmail;
                          // passwordController = myPassword;
-                          await sl<AuthenticationDataBloc>().callAuthenticationForLogin();
+                          decision  = await sl<AuthenticationDataBloc>().callAuthenticationForLogin(inputStringEmailLogin ,  inputStringPasswordLogin);
                         // await loginUsecase.authenticationDataRepository.getAuthenticationLogin();
                         if(decision == true) {
+                          await prefs!.setBool('checkbox', valuefirst);
                           // Navigator.pushReplacementNamed(context, 'home');
-                          BlocProvider.of<HomeDataBloc>(context).loadHomeFeatureScreen();
+                          BlocProvider.of<AuthenticationDataBloc>(context).loadLoginScreen();
                         }
                         else{
                           showDialog(
